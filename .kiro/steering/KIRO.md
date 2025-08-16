@@ -167,7 +167,7 @@ master_triggers:
 
 # JTCCommunity Agent Paths
 
-root: "/Users/matuni__/Desktop/agent_template/output/jtc_agent"
+root: "/Users/matuni__/Desktop/jtc_agent"
 
 dirs:
   flow: "{{root}}/Flow"
