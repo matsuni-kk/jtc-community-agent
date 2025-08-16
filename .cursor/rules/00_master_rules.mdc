@@ -19,11 +19,10 @@ ai_instructions:
 # ==========================================================
 
 master_triggers:
-  # ========================= / 1–N. Domain Rules (01–89) / =========================
 
-  ## A-01-01. Initialization
-
-  ### プロジェクト初期化
+  # =========================
+  # 01. Initialization / プロジェクト初期化
+  # =========================
   - trigger: "(JTC初期化|JTCプロジェクト開始|初期設定|プロジェクト初期化)"
     priority: high
     steps:
@@ -45,9 +44,9 @@ master_triggers:
         action: "message"
         content: "**プロジェクト初期化を完了しました。**\n\n保存場所: `README.md`\n\n【Flowワークフローの場合】\n- ドラフトを確認・編集してください\n- 完成したら「Stock移行」で確定版へ\n\n【直接変換の場合】\n- ファイルは即座に使用可能です"
 
-  ## A-01-02. Info Intake
-
-  ### 情報取り込み
+  # =========================
+  # 02. Info Intake / 情報取り込み
+  # =========================
   - trigger: "(情報取り込み|情報インポート|イベント情報|もくもく会情報|勉強会情報)"
     priority: high
     steps:
@@ -66,9 +65,9 @@ master_triggers:
         action: "message"
         content: "**情報取り込みドラフトを作成しました。**\n\n保存場所: `{{patterns.draft_info_intake}}`\n\n【Flowワークフローの場合】\n- ドラフトを確認・編集してください\n- 完成したら「Stock移行」で確定版へ\n\n【直接変換の場合】\n- ファイルは即座に使用可能です"
 
-  ## A-01-03. Event Management
-
-  ### イベント整理
+  # =========================
+  # 03. Event Management / イベント整理
+  # =========================
   - trigger: "(イベント整理|飲み会整理|出欠管理|イベント運営)"
     priority: high
     steps:
@@ -87,9 +86,9 @@ master_triggers:
         action: "message"
         content: "**イベント運営台帳ドラフトを作成しました。**\n\n保存場所: `{{patterns.draft_event_plan}}`\n\n【Flowワークフローの場合】\n- ドラフトを確認・編集してください\n- 完成したら「Stock移行」で確定版へ\n\n【直接変換の場合】\n- ファイルは即座に使用可能です"
 
-  ## A-01-04. Knowledge Curation
-
-  ### ナレッジ整理
+  # =========================
+  # 04. Knowledge Curation / ナレッジ整理
+  # =========================
   - trigger: "(ナレッジ整理|内容分析|まとめ|要約作成)"
     priority: high
     steps:
@@ -108,9 +107,9 @@ master_triggers:
         action: "message"
         content: "**ナレッジノートのドラフトを作成しました。**\n\n保存場所: `{{patterns.draft_knowledge_note}}`\n\n【Flowワークフローの場合】\n- ドラフトを確認・編集してください\n- 完成したら「Stock移行」で確定版へ\n\n【直接変換の場合】\n- ファイルは即座に使用可能です"
 
-  ## A-01-05. Reporting
-
-  ### 週次ダイジェスト
+  # =========================
+  # 05. Reporting / 週次ダイジェスト
+  # =========================
   - trigger: "(週次ダイジェスト|週報|レポート作成|ダイジェスト)"
     priority: medium
     steps:
@@ -130,7 +129,7 @@ master_triggers:
         content: "**週次ダイジェストのドラフトを作成しました。**\n\n保存場所: `{{patterns.draft_weekly_digest}}`\n\n【Flowワークフローの場合】\n- ドラフトを確認・編集してください\n- 完成したら「Stock移行」で確定版へ\n\n【直接変換の場合】\n- ファイルは即座に使用可能です"
 
   # =========================
-  # A-01-90. Task Management Rules
+  # 90. Task Management Rules
   # =========================
   - trigger: "(今日のタスク作成|daily task|task作成)"
     priority: medium
@@ -139,7 +138,7 @@ master_triggers:
         action: "call 90_task_management.mdc => create_daily_task"
 
   # =========================
-  # A-01-97. Flow to Stock Rules
+  # 97. Flow to Stock Rules
   # =========================
   - trigger: "(Flow確定|Stock移動|確定版作成)"
     priority: medium
@@ -148,7 +147,7 @@ master_triggers:
         action: "call 97_flow_to_stock_rules.mdc => flow_to_stock_process"
 
   # =========================
-  # A-01-98. Flow Assist Rules
+  # 98. Flow Assist Rules
   # =========================
   - trigger: "(Flow支援|作業支援|draft支援)"
     priority: low
@@ -157,7 +156,7 @@ master_triggers:
         action: "call 98_flow_assist.mdc => provide_flow_assistance"
 
   # =========================
-  # A-01-99. Rule Maintenance
+  # 99. Rule Maintenance
   # =========================
   - trigger: "(ルール更新|rule update|ルールメンテナンス)"
     priority: low
