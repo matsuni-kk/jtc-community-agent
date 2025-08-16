@@ -1,0 +1,3 @@
+# Ignore OS/editor artifacts
+.DS_Store
+Thumbs.db
