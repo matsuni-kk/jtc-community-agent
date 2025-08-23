@@ -406,7 +406,8 @@ def update_master_files_only(project_root: Path, dry_run: bool = False) -> bool:
         project_root / "CLAUDE.md",
         project_root / "AGENTS.md",
         project_root / ".gemini" / "GEMINI.md",
-        project_root / ".kiro" / "steering" / "KIRO.md"
+        project_root / ".kiro" / "steering" / "KIRO.md",
+        project_root / ".github" / "copilot-instructions.md"
     ]
     
     print("\n🔄 エージェントマスターファイル更新スクリプト開始")
