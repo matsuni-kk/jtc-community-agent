@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JTC Meeting 2025-09-04</title>
+    <meta name="color-scheme" content="light dark" />
+    <style>
+      :root { --fg:#222; --bg:#fff; --muted:#667085; --link:#0b66c3; --code-bg:#f6f8fa; }
+      @media (prefers-color-scheme: dark){ :root{ --fg:#e6e6e6; --bg:#0b0f14; --muted:#9aa4b2; --link:#7bb0ff; --code-bg:#111827; } }
+      html,body{ margin:0; padding:0; background:var(--bg); color:var(--fg); }
+      .container{ max-width:860px; margin:40px auto; padding:0 16px; }
+      h1,h2,h3{ line-height:1.2 }
+      pre,code{ background:var(--code-bg); }
+      pre{ padding:12px; overflow:auto; border-radius:6px }
+      code{ padding:2px 4px; border-radius:4px }
+      a{ color:var(--link); text-decoration:none }
+      a:hover{ text-decoration:underline }
+      .header{ display:flex; align-items:center; gap:12px; margin-bottom:24px }
+      .file-select{ margin-left:auto }
+      .muted{ color:var(--muted); font-size:14px }
+      .footer{ margin:40px 0; border-top:1px solid rgba(127,127,127,.25); padding-top:16px; font-size:14px; color:var(--muted) }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+      const mdFile = 'jtc_meeting_2025-09-04.md';
+      async function renderMarkdown(file){
+        const res = await fetch(file);
+        if(!res.ok){
+          document.getElementById('app').innerHTML = `<p>読み込みに失敗しました: ${res.status}</p>`;
+          return;
+        }
+        const text = await res.text();
+        // タイトル抽出（先頭のH1）
+        const m = text.match(/^#\s+(.+)$/m);
+        if(m){ document.title = m[1] + ' - JTC'; document.getElementById('title').textContent = m[1]; }
+        marked.setOptions({ breaks:true, gfm:true });
+        document.getElementById('app').innerHTML = marked.parse(text);
+      }
+      window.addEventListener('DOMContentLoaded', ()=> renderMarkdown(mdFile));
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 id="title">JTC Meeting 2025-09-04</h1>
+        <span class="muted">Markdown → HTML（クライアント変換）</span>
+      </div>
+      <main id="app">読み込み中...</main>
+      <div class="footer">
+        このページは`docs/`配下でGitHub Pagesに公開できます。
+      </div>
+    </div>
+  </body>
+  </html>
+
