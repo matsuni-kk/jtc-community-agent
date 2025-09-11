@@ -4,6 +4,22 @@ globs:
 alwaysApply: true
 ---
 
+path_reference: "jtc_paths.mdc"
+
+prompt_purpose: |
+  本ルールは、編集中ドキュメントの状態を短時間で把握し、改善提案と次アクションを提示します。
+  例）本ルールは、［対象ドメイン］の事実を整え、合意形成と次アクションを高速化するためのルールです。
+
+prompt_why_questions: |
+  現状の要約・不足点・推奨修正・優先度を揃え、編集効率を上げます。
+
+prompt_why_templates: |
+  1画面でアセスメント結果を共有し、Flow継続編集やStock移行判断に直結させます。
+  なぜそのテンプレートなのか
+
+prompt_principles: |
+  短文・断定形／出典・日時・パス明記／欠落は「未記載」／推測禁止／事実と意図を分離／既存トリガー・コマンドは変更しない。
+
 # Flow Assistance
 
 provide_flow_assistance:
